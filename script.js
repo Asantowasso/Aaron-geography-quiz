@@ -6,6 +6,7 @@ var correctAnswer = ["British Columbia", "Rome", "Cambodia", "The Amazon", "Chin
 
 var incorrectAnswer = ["Quebec", "Ontario", "Newfoundland and Labrador", "Naples", "Turin", "Tyre", "India", "Vietname", "Laos","The Nile", "The Po River", "The Colorado", "Indonesia", "Nigeria", "Pakistan" ]
 var timerEl = document.getElementById("timer")
+const quizQuestionsElement = document.getElementById(quizQuestions)
 function startClock (startTimer) {
     
     var counter = 15;
@@ -13,7 +14,7 @@ function startClock (startTimer) {
 
 }
 //A list of my questions
-const quizQuestions = [
+var quizQuestions = [
 {
     question: "What is Canads's westernmost province",
     answers: {
@@ -73,7 +74,9 @@ correctAnswer: 'a'
 ]
 
 //Add fuctionallity to the questions
+function displayQuestion(quizQuestionsElement) {
 
+}
 
 //Timer lets user now how much timer they have to answer the question
 function startTimer(){
