@@ -39,56 +39,34 @@ var startcontainer = document.getElementById("start-container");
 var quizQuestions = [
   {
     question: "What is Canads's westernmost province",
-    answers: [
-      "Quebec",
-      "British Columbia",
-      "Ontario",
-      "Newfoundland and Labrador",
-    ],
-    correctAnswer: "British Columbia",
+    answers: ["British Columbia", "Quebec", "Newfoundland and Labrador", "Ontartio"],
+    answer: 0
+
+    
   },
 
   {
     question: "What is the capital of Italy",
-    answers: {
-      a: "Naples",
-      b: "Turin",
-      c: "Tyre",
-      d: "Rome",
-    },
-    correctAnswer: "d",
+    answers: ["Naples", "Turin", "Tyre", "Rome"],
+    answer: 3
   },
+   
 
   {
     question: "What country is Angkor Wat located in",
-    answers: {
-      a: "Cambodia",
-      b: "India",
-      c: "Vietnam",
-      d: "Laos",
-    },
-    correctAnswer: "a",
+    answers: ["Cambodia", "India", "Vietnam", "Laos"],
+    answer: 0
   },
 
   {
     question: "What is the longest river in the world?",
-    answers: {
-      a: "The Nile",
-      b: "The Po River",
-      c: "The Amazon",
-      d: "The Colorado",
-    },
-    correctAnswer: "c",
+    answers: ["The Nile", "The Amazon", "The Colorado", "The Po River"],
+    answer: 1
   },
   {
     question: "What is the most populated country in the world?",
-    answers: {
-      a: "China",
-      b: "Indonesia",
-      c: "Nigeria",
-      d: "Pakistan",
-    },
-    correctAnswer: "a",
+    answers: ["Indonesia","Pakistan", "China","Nigeria"],
+    answer: 2
   },
 ];
 
