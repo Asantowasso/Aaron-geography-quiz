@@ -1,4 +1,7 @@
-var counter = 15;
+var counter = 90;
+var answerArr = [];
+let currentQuestion = {}
+let score
 //I need a start button which activates a timer
 // When the user answers a question it goes to the next question
 // A running timer that incurs a penalty when an incorrect answer is given
@@ -36,8 +39,9 @@ var startcontainer = document.getElementById("start-container");
 
 
 //A list of my questions
-var quizQuestions = [
+var quizQuestionsarr = [
   {
+    
     question: "What is Canads's westernmost province",
     answers: ["British Columbia", "Quebec", "Newfoundland and Labrador", "Ontartio"],
     answer: 0
@@ -81,7 +85,10 @@ function start() {
     if (counter === 0) {
       clearInterval(timer);
     }
-  }, 1000);
+  }, 90,000);
+
+  
+
 
   startcontainer.classList.add("hidden");
   displayQuestion() 
@@ -89,12 +96,14 @@ function start() {
 //Add fuctionallity to the questions
 function displayQuestion() {
 
-  correctAnswercontainer.innerHTML = "";
-  for (var i = 0; i < correctAnswerarr.length; i++) {
-    var h1El = document.createElement("button");
-
-    h1El.textContent = correctAnswerarr[i];
-    correctAnswercontainer.append(h1El);
+    quizQuestionsContainer.innerHTML = "";
+  for (var i = 0; i < quizQuestionsarr.length; i++) {
+    var h1El = document.createElement("p");
+    var h2El = document.createElement("button");
+    h1El.textContent = quizQuestionsarr[i].question;
+    quizQuestionsContainer.append(h1El);
+    h2El.textContent = quizQuestionsarr[i].answers;
+    quizQuestionsContainer.append(h2El);
   }
 }
 
