@@ -1,6 +1,8 @@
 var counter = 90;
 var answerArr = [];
 let score = []
+var currentIndex = 0
+
 
 //I need a start button which activates a timer
 // When the user answers a question it goes to the next question
@@ -64,7 +66,7 @@ function start() {
     }
   }, 90.000);
 
-  
+
 
 
   startcontainer.classList.add("hidden");
@@ -73,18 +75,16 @@ function start() {
 //var currentIndex = 0
 //Add fuctionallity to the questions
 function displayQuestion() {
-  //var currentQObj = quizQuestionsarr[currentIndex]
-    quizQuestionsContainer.innerHTML = "";
-  for (var i = 0; i < quizQuestionsarr.length; i++) {
+  var currentQObj = quizQuestionsarr[currentIndex]
+    quizQuestionsContainer.innerHTML = "";    
     var h1El = document.createElement("p");
-    var h2El = document.createElement("button");
-    h1El.textContent = quizQuestionsarr[i].question;
+    h1El.textContent = currentQObj.question;    
     quizQuestionsContainer.append(h1El);
-    h2El.textContent = quizQuestionsarr[i].answers;
-    quizQuestionsContainer.append(h2El);
-    var currentQObj = quizQuestionsarr[currentIndex]
 
-    var currentIndex = 0
+  for (var i = 0; i < currentQObj.answers.length; i++) {
+    var h2El = document.createElement("button");
+    h2El.textContent = currentQObj.answers[i];
+    quizQuestionsContainer.append(h2El);
 
 
 }
