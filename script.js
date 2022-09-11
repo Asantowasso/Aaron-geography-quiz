@@ -82,6 +82,11 @@ function displayQuestion() {
     quizQuestionsContainer.append(h1El);
     h2El.textContent = quizQuestionsarr[i].answers;
     quizQuestionsContainer.append(h2El);
+    var currentQObj = quizQuestionsarr[currentIndex]
+
+    var currentIndex = 0
+
+
 }
 }
 
