@@ -64,7 +64,7 @@ function start() {
     if (counter === 0) {
       clearInterval(timer);
     }
-  }, 90.000);
+  }, 90,000);
 
 
 
@@ -85,11 +85,15 @@ function displayQuestion() {
     var h2El = document.createElement("button");
     h2El.textContent = currentQObj.answers[i];
     quizQuestionsContainer.append(h2El);
-
+    h2El.addEventListener('click', checkAnswer)
 
 }
 }
 
+function checkAnswer(e){
+console.log(e.target)
+e.target.name == quizQuestionsarr[currentIndex].answer
+}
 
 
 
