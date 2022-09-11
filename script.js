@@ -91,8 +91,10 @@ function displayQuestion() {
 }
 
 function checkAnswer(e){
-console.log(e.target)
-e.target.name == quizQuestionsarr[currentIndex].answer
+console.log(e.target.textContent, "textContent")
+var contents = e.target.textContent
+contents == quizQuestionsarr[currentIndex].answer
+
 }
 
 
