@@ -23,7 +23,7 @@ var quizQuestionsarr = [
     
     question: "What is Canads's westernmost province",
     answers: ["British Columbia", "Quebec", "Newfoundland and Labrador", "Ontartio"],
-    answer: 0
+    answer: "British Columbia"
 
     
   },
@@ -31,25 +31,25 @@ var quizQuestionsarr = [
   {
     question: "What is the capital of Italy",
     answers: ["Naples", "Turin", "Tyre", "Rome"],
-    answer: 3
+    answer: "Rome"
   },
    
 
   {
     question: "What country is Angkor Wat located in",
     answers: ["Cambodia", "India", "Vietnam", "Laos"],
-    answer: 0
+    answer: "Cambodia"
   },
 
   {
     question: "What is the longest river in the world?",
     answers: ["The Nile", "The Amazon", "The Colorado", "The Po River"],
-    answer: 1
+    answer: "The Amazon"
   },
   {
     question: "What is the most populated country in the world?",
     answers: ["Indonesia","Pakistan", "China","Nigeria"],
-    answer: 2
+    answer: "China"
   },
 ];
 
@@ -88,13 +88,16 @@ function displayQuestion() {
     h2El.addEventListener('click', checkAnswer)
 
 }
+
 }
 
 function checkAnswer(e){
 console.log(e.target.textContent, "textContent")
 var contents = e.target.textContent
-contents == quizQuestionsarr[currentIndex].answer
-
+const correctAnswerIndex = quizQuestionsarr[currentIndex].answer
+quizQuestionsarr[currentIndex].answers
+contents == parseInt(quizQuestionsarr[currentIndex].answer)
+if(contents === correctAnswerIndex) { continue }
 }
 
 
