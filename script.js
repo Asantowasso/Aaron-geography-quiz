@@ -1,41 +1,18 @@
 var counter = 90;
 var answerArr = [];
-let currentQuestion = {}
-let score
+let score = []
+
 //I need a start button which activates a timer
 // When the user answers a question it goes to the next question
 // A running timer that incurs a penalty when an incorrect answer is given
 // When the game is over I can enter my initals
-var correctAnswerarr = [
-  "British Columbia",
-  "Rome",
-  "Cambodia",
-  "The Amazon",
-  "China",
-];
 
-var incorrectAnswer = [
-  "Quebec",
-  "Ontario",
-  "Newfoundland and Labrador",
-  "Naples",
-  "Turin",
-  "Tyre",
-  "India",
-  "Vietname",
-  "Laos",
-  "The Nile",
-  "The Po River",
-  "The Colorado",
-  "Indonesia",
-  "Nigeria",
-  "Pakistan",
-];
 var timerEl = document.getElementById("timer");
 const quizQuestionsContainer = document.getElementById("question-container");
 var correctAnswercontainer = document.getElementById("correct-answers");
 var startcontainer = document.getElementById("start-container");
 //answers
+
 
 
 //A list of my questions
@@ -85,7 +62,7 @@ function start() {
     if (counter === 0) {
       clearInterval(timer);
     }
-  }, 90,000);
+  }, 90.000);
 
   
 
@@ -93,9 +70,10 @@ function start() {
   startcontainer.classList.add("hidden");
   displayQuestion() 
 }
+//var currentIndex = 0
 //Add fuctionallity to the questions
 function displayQuestion() {
-
+  //var currentQObj = quizQuestionsarr[currentIndex]
     quizQuestionsContainer.innerHTML = "";
   for (var i = 0; i < quizQuestionsarr.length; i++) {
     var h1El = document.createElement("p");
@@ -104,7 +82,11 @@ function displayQuestion() {
     quizQuestionsContainer.append(h1El);
     h2El.textContent = quizQuestionsarr[i].answers;
     quizQuestionsContainer.append(h2El);
-  }
 }
+}
+
+
+
+
 
 document.getElementById("start").addEventListener("click", start);
