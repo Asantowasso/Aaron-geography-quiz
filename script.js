@@ -1,6 +1,6 @@
 var counter = 90;
 var answerArr = [];
-let score = []
+var score = 0;
 var currentIndex = 0
 
 
@@ -95,12 +95,17 @@ function checkAnswer(e){
 console.log(e.target.textContent, "textContent")
 var contents = e.target.textContent
 const correctAnswerIndex = quizQuestionsarr[currentIndex].answer
-quizQuestionsarr[currentIndex].answers
-contents == parseInt(quizQuestionsarr[currentIndex].answer)
-if(contents === correctAnswerIndex) { continue }
+
+
+    if(contents === correctAnswerIndex) {
+        score++;
+        alert ("correct")
+}
+else {
+    alert ("incorrect")
 }
 
-
+}
 
 
 document.getElementById("start").addEventListener("click", start);
