@@ -4,6 +4,11 @@ body{
     width:100vw;
     height: 100vh;    
 }
+
+.h1{
+    text-align: center;
+}
+
 .panel{
     height: 100vh;
     display: flex;
@@ -11,6 +16,7 @@ body{
     justify-content: center;
     align-items: center;
 }
+
 .question-container{
     margin: 10px;
     padding: 5px;
@@ -18,9 +24,9 @@ body{
     height: 10vh;
     background-color: #c7dddf;
     font-size: x-large;
-    text-align: center;
       
 }
+
 .result{
     margin: 10px;
     padding: 5px;
