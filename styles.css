@@ -1,81 +1,87 @@
-*{
-    margin: 0;
-    padding: 0;
+*,
+::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Times New Roman", Times, serif;
 }
 
-body{
-    background: linear-gradient(to right, #776885, #73C2BE, #776885);
-    background-repeat: no-repeat;
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
+:root {
+  --hue-neutral: 200;
+  --hue-wrong: 0;
+  --hue-correct: 145;
 }
 
-.container{
-    width: 80vw;
-    max-width: 80%;
-    background-color: #5F1A37;
-    height: 70vh;
-    box-shadow: 0 0 5px 4px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    text-align: center;
-
+body {
+  --hue: var(--hue-neutral);
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(var(--hue), 100%, 20%);
 }
 
-.score{
-    font-size: large;
+body.correct {
+  --hue: var(--hue-correct);
+}
+
+body.wrong {
+  --hue: var(--hue-wrong);
+}
+
+.container {
+  width: 800px;
+  max-width: 80%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px 2px;
+}
+
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.btn {
+  --hue: var(--hue-neutral);
+  border: 1px solid hal(var(--hue), 100%, 30%);
+  background-color: hsl(var(--hue), 100%, 50%);
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+  outline: none;
+}
+
+.btn:hover {
+    border-color: black;
+}
+
+.btn.correct {
+    --hue: var(--hue-correct);
+    color: black;
+}
+
+.btn.wrong {
+    --hue: var(--hue-wrong); 
+}
+
+.start-btn, .next-btn {
+    font-size: 1.5rem;
     font-weight: bold;
+    padding: 10px 20px;
 }
 
-#user-score{
-    color:#ef9614;
-}
-
-#total-score{
-    color: #f6490f
-}
-
-.content{
+.controls {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
 
-.btn{
-    font-size: large;
-    font-weight: bold;
-    box-shadow: 0 6px 12px -2px rgba(#f27813,.15);
-    background: #776885;
-    border-radius: 4px;
-    padding: 10px;
-    color: beige;
-    margin: 6px;
-    cursor: pointer;
-}
-
-.btn:hover{
-    color:black;
-    padding: 15px;
-}
-
-.options{
-    padding: 10px;
-    order: 3;
-}
-
-.controls{
-    padding: 10px;
-    order: 4;
-}
-
-.hide{
-    display:none;
+.hide {
+    display: none;
 }

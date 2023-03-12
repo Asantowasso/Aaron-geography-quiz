@@ -1,174 +1,21 @@
 //I need to render a start button, a start screen, a place for the user to enter their initials, a highscore, a container for the questions and a place to store scores
 
-const restartBtn = document.getElementById("restart");
-const prevBtn = document.getElementById("prev");
-const nextBtn = document.getElementById("next");
-const submitBtn = document.getElementById("submit");
-const trueBtn = document.getElementById("True");
-const falseBtn = document.getElementById("False");
-const userScore = document.getElementById("user-score");
-const questionText = document.getElementById("question-text");
+const startButton = document.getElementById('start-btn')
+const questionContainerElement= document.getElementById('question-container')
 
-let currentQuestion = 0;
-var score = 0;
+startButton.addEventListener('click', startGame)
 
-let questions = [
-  {
-    question: "What is the westernmost province of Canada?",
-    answers: [
-      { option: "Alberta", answer: false },
-      { option: "British Columbia", answer: true },
-    ],
-  },
-  {
-    question: "What country is Angkor Wat located in ",
-    answers: [
-      { option: "Cambodia", answer: true },
-      { option: "Nepal", answer: false },
-      
-    ],
-  },
+function startGame(){
+  startButton.classList.add('hide')
+  questionContainerElement.classList.remove('hide')
+  setNextQuestion()
 
-  {
-    question: "How Many islands make up Hawaii",
-    answers: [
-      { option: "120", answer: false },
-      { option: "137", answer: true },
-    ],
-  },
-];
-
-restartBtn.addEventListener("click", restart);
-prevBtn.addEventListener("click", prev);
-nextBtn.addEventListener("click", next);
-submitBtn.addEventListener("click", submit);
-
-function beginQuiz() {
-  currentQuestion = 0;
-  questionText.innerHTML = questions[currentQuestion].question;
-  trueBtn.innerHTML = questions[currentQuestion].answers[0].option;
-  trueBtn.onClick = () => {
-    let ano = 0;
-    if (questions[currentQuestion].answers[ano].answer) {
-      if (score < 3) {
-        score++;
-      }
-    }
-    userScore.innerHTML = score;
-    if (currentQuestion < 2) {
-      next();
-    }
-  };
-  falseBtn.innerHTML = questions[currentQuestion].answers[1].option;
-  falseBtn.onClick = () => {
-    let ano = 0;
-    if (questions[currentQuestion].answers[ano].answer) {
-      if (score < 3) {
-        score++;
-      }
-    }
-    userScore.innerHTML = score;
-    if (currentQuestion < 2) {
-      next();
-    }
-  };
-
-  prevBtn.classList.add("hide");
 }
 
-beginQuiz();
+function setNextQuestion() {
 
-function restart() {
-  currentQuestion = 0;
-  prevBtn.classList.remove("hide");
-  nextBtn.classList.remove("hide");
-  submitBtn.classList.remove("hide");
-  trueBtn.classList.remove("hide");
-  falseBtn.classList.remove("hide");
-  score = 0;
-  userScore.innerHTML = score;
-  beginQuiz();
 }
 
-function next(){
-  currentQuestion++;
-  if(currentQuestion>=2){
-    nextBtn.classList.add('hide');
-    prevBtn.classList.remove('hide');
-  }
-  questionText.innerHTML = questions[currentQuestion].question;
-  trueBtn.innerHTML = questions[currentQuestion].answers[0].option;
-  trueBtn.onclick = () =>{
-    let ano=0;
-    if(questions [currentQuestion].answers[ano].answer){
-      if(score<3){
-        score++;
-      }
-    }
-    userScore.innerHTML = score;
-    if(currentQuestion<2){
-      next()
-    }
-  }
+function selectAnswer() {
 
-  falseBtn.innerHTML = questions[currentQuestion].answers[1].option;
-  falseBtn.onclick = () => {
-    let ano=1;
-    if(questions [currentQuestion].answers[ano].answer){
-      if(score<3){
-        score++;
-      }
-    }
-    userScore.innerHTML = score;
-    if(currentQuestion<2){
-      next();
-    }
-  }
-  prevBtn.classList.remove('hide');
-}
-
-function prev(){
-  currentQuestion--;
-  if(currentQuestion<=0){
-    prevBtn.classList.add('hide');
-    nextBtn.classList.remove('hide');
-  }
-  questionText.innerHTML = questions[currentQuestion].question;
-  trueBtn.innerHTML = questions[currentQuestion].answers[0].option;
-  trueBtn.onclick = () =>{
-    let ano=0;
-    if(questions [currentQuestion].answers[ano].answer){
-      if(score<3){
-        score++;
-      }
-    }
-    userScore.innerHTML = score;
-    if(currentQuestion<2){
-      next()
-    }
-  }
-
-  falseBtn.innerHTML = questions[currentQuestion].answers[1].option;
-  falseBtn.onclick = () => {
-    let ano=1;
-    if(questions [currentQuestion].answers[ano].answer){
-      if(score<3){
-        score++;
-      }
-    }
-    userScore.innerHTML = score;
-    if(currentQuestion<2){
-      next();
-    }
-  }
-  nextBtn.classList.remove('hide');
-}
-
-function submit(){
-  prevBtn.classList.add("hide");
-  nextBtn.classList.add("hide");
-  submitBtn.classList.add("hide");
-  trueBtn.classList.add("hide");
-  falseBtn.classList.add("hide");
-  questionText.innerHTML = "You Finished!"
 }
