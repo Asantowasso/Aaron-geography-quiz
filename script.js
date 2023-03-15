@@ -2,33 +2,32 @@
 
 //Functions will be needed to build the quiz, show the results and bind it all together
 
-const quizContainer = document.getElementById('quiz');
+const quizContainer = document.getElementById("quiz");
 
-const resultsContainer = document.getElementById('results');
+const resultsContainer = document.getElementById("results");
 
-const submitButton = document.getElementById('submit');
+const submitButton = document.getElementById("submit");
 
 // An array for the questions
-const myQuestions =[
+const myQuestions = [
   {
     question: "What is the westernmost province in Canada?",
-    answers:{
-      a:"British Columbia",
-      b:"Alberta",
-      c:"Nova Scotia" 
+    answers: {
+      a: "British Columbia",
+      b: "Alberta",
+      c: "Nova Scotia",
     },
-    correctAnswer:"a"
+    correctAnswer: "a",
   },
 
   {
     question: "Where is Angkor Wat located",
     answers: {
-      a:"Vietnam",
-      b:"Cambodia",
-      c:"india"
+      a: "Vietnam",
+      b: "Cambodia",
+      c: "india",
     },
-    correctAnswer:"b"
-
+    correctAnswer: "b",
   },
 
   {
@@ -36,88 +35,70 @@ const myQuestions =[
     answers: {
       a: "Hamburg",
       b: "Dresden",
-      c: "Berlin"
+      c: "Berlin",
     },
-    correctAnswer:"c"
-  }
-
-
-]
+    correctAnswer: "c",
+  },
+];
 
 // A function that will create our quiz
-function buildQuiz(){
-
-  const output = []
+function buildQuiz() {
+  const output = [];
 
   myQuestions.forEach(
-    (currentQuestion, questionNumber) =>{
+    (currentQuestion, questionNumber) => {
 
-      const answers = [];
+    const answers = [];
 
-    for (letter in currentQuestion.answers){
-
+    for (letter in currentQuestion.answers) {
       answers.push(
         `<label>
         <input type="radio" name="question${questionNumber}" value="${letter}">
         ${letter} :
         ${currentQuestion.answers[letter]}
         </label>`
-
       );
-
     }
 
-    output.push (
+    output.push(
       `<div class"question"> ${currentQuestion.question} </div>
       <div class="answers"> ${answers.join('')} </div>`
     );
+  }
+);
 
-
-    }
-    
-    
-    );
-
-
+quizContainer.innerHTML = output.join('');
 }
 
 // A function to display our results
-function showResults(){
-  const answerContainers = quizContainer.querySelectorAll('.answers');
+function showResults() {
+  const answerContainers = quizContainer.querySelectorAll(".answers");
 
   let numCorrect = 0;
 
-  myQuestions.forEach( (currentQuestion, questionNumber) => {
-
+  myQuestions.forEach((currentQuestion, questionNumber) => {
     const answerContainer = answerContainers[questionNumber];
     const selector = `input[name=question${questionNumber}]:checked`;
     const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
     // When the user answers correctly
-    if(userAnswer === currentQuestion.correctAnswer){
-    // We will increase the number of question answered correctly
+    if (userAnswer === currentQuestion.correctAnswer) {
+      // We will increase the number of question answered correctly
       numCorrect++;
 
       //Color the answers
-      answerContainer[questionNumber].style.color = 'lightgreen';
-    }
-
-    else{
+      answerContainer[questionNumber].style.color = "lightgreen";
+    } else {
       //for the wrong answer
-      answerContainers[questionNumber].style.color = 'red';
+      answerContainers[questionNumber].style.color = "red";
     }
     {
-
-      resultsContainer.innerHTML= `${numCorrect} our of ${myQuestions.length}`;
-
+      resultsContainer.innerHTML = `${numCorrect} our of ${myQuestions.length}`;
     }
-  })
-
-
-
+  });
 }
 
 //A function to create the quiz
-buildQuiz()
+buildQuiz();
 
-submitButton.addEventListener('click', showResults);
+submitButton.addEventListener("click", showResults);
