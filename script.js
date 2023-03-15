@@ -44,6 +44,7 @@ const myQuestions =[
 
 ]
 
+// A function that will create our quiz
 function buildQuiz(){
 
   const output = []
@@ -60,19 +61,61 @@ function buildQuiz(){
         <input type="radio" name="question${questionNumber}" value="${letter}">
         ${letter} :
         ${currentQuestion.answers[letter]}
-        </letter>`
+        </label>`
 
       );
 
     }
 
+    output.push (
+      `<div class"question"> ${currentQuestion.question} </div>
+      <div class="answers"> ${answers.join('')} </div>`
+    );
 
-    });
+
+    }
+    
+    
+    );
 
 
 }
 
-function showResults(){}
+// A function to display our results
+function showResults(){
+  const answerContainers = quizContainer.querySelectorAll('.answers');
+
+  let numCorrect = 0;
+
+  myQuestions.forEach( (currentQuestion, questionNumber) => {
+
+    const answerContainer = answerContainers[questionNumber];
+    const selector = `input[name=question${questionNumber}]:checked`;
+    const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+    // When the user answers correctly
+    if(userAnswer === currentQuestion.correctAnswer){
+    // We will increase the number of question answered correctly
+      numCorrect++;
+
+      //Color the answers
+      answerContainer[questionNumber].style.color = 'lightgreen';
+    }
+
+    else{
+      //for the wrong answer
+      answerContainers[questionNumber].style.color = 'red';
+    }
+    {
+
+      resultsContainer.innerHTML= `${numCorrect} our of ${myQuestions.length}`;
+
+    }
+  })
+
+
+
+}
 
 //A function to create the quiz
 buildQuiz()
