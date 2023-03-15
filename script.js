@@ -72,7 +72,7 @@ quizContainer.innerHTML = output.join('');
 
 // A function to display our results
 function showResults() {
-  const answerContainers = quizContainer.querySelectorAll(".answers");
+  const answerContainers = quizContainer.querySelectorAll('.answers');
 
   let numCorrect = 0;
 
@@ -87,18 +87,19 @@ function showResults() {
       numCorrect++;
 
       //Color the answers
-      answerContainer[questionNumber].style.color = "lightgreen";
+      answerContainers[questionNumber].style.color = "lightgreen";
     } else {
       //for the wrong answer
       answerContainers[questionNumber].style.color = "red";
     }
-    {
+    });
       resultsContainer.innerHTML = `${numCorrect} our of ${myQuestions.length}`;
     }
-  });
-}
+  
+
 
 //A function to create the quiz
 buildQuiz();
 
 submitButton.addEventListener("click", showResults);
+
