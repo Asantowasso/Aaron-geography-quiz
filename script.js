@@ -2,11 +2,6 @@
 
 //Functions will be needed to build the quiz, show the results and bind it all together
 
-const quizContainer = document.getElementById("quiz");
-
-const resultsContainer = document.getElementById("results");
-
-const submitButton = document.getElementById("submit");
 
 
 
@@ -130,6 +125,14 @@ function showResults() {
     function showPreviousSlide() {
       showSlide(currentSlide - 1);
     }
+
+
+    const quizContainer = document.getElementById("quiz");
+
+    const resultsContainer = document.getElementById("results");
+    
+    const submitButton = document.getElementById("submit");
+    
 
 
 //A function to create the quiz
