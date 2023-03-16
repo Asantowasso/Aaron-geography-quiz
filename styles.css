@@ -1,4 +1,14 @@
 
+body{
+font-size: 20px;
+font-family: 'Work Sans', sans-serif;
+color: #333;
+font-weight: 300;
+text-align: center;
+background-color: #f8f6f0;
+}
+
+
 .slide{
     position: absolute;
     left: 0px;
@@ -11,14 +21,43 @@
 
   .active-slide {
     opacity: 1;
-    z-index: 5;
+    z-index: 2;
   }
 
+  .question{
+    font-size: 30px;
+    margin-bottom: 10px;
+    
+  }
+
+  .answers {
+    margin-bottom: 20px;
+    text-align: left;
+    display: inline-block;
+  }
+  .answers label{
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  button{
+    font-family: 'Work Sans', sans-serif;
+	font-size: 22px;
+	background-color: #279;
+	color: #fff;
+	border: 0px;
+	border-radius: 3px;
+	padding: 20px;
+	cursor: pointer;
+    margin-top: 170px;
+	margin-bottom: 50px;
+
+  }
 
 
   .quiz-container{
     position: relative;
     height: 200px;
-    margin-top: 100px;
+    margin-top: 40px;
   }
   
