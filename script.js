@@ -70,6 +70,8 @@ function buildQuiz() {
 quizContainer.innerHTML = output.join('');
 }
 
+
+
 // A function to display our results
 function showResults() {
   const answerContainers = quizContainer.querySelectorAll('.answers');
@@ -96,15 +98,20 @@ function showResults() {
       resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
     }
   
+    
 
     function showSlide(n){
       slides[currentSlide].classList.remove('active-slide');
       slides[n].classList.add('active-slide');
       currentSlide = n;
+      
+    
       if(currentSlide === 0){
+        startButton.style.display = 'inline-block'
         previousButton.style.display = 'none';
       }
       else{
+        startButton.style.display = 'none';
         previousButton.style.display = 'inline-block'
       }
       if(currentSlide === slides.length-1){
@@ -115,6 +122,8 @@ function showResults() {
         nextButton.style.display = 'inline-block';
         submitButton.style.display = 'none';
       }
+
+      
 
     }
 
@@ -137,6 +146,8 @@ function showResults() {
 
 //A function to create the quiz
 buildQuiz();
+
+const startButton = document.getElementById("start")
 
 const previousButton = document.getElementById("previous");
 
